@@ -26,7 +26,7 @@ export class PageComponent {
     {value: 'Jio Saavan', viewValue: 'Jio Saavan'},
     {value: 'JioFiber', viewValue: 'JioFiber'},
     {value: 'Air Fiber', viewValue: 'Air Fiber'},
-    {value: 'Jio Sim', viewValue: 'Jio Phone'},
+    {value: 'Jio Sim', viewValue: 'Jio Sim'},
     {value: 'Jio Fi', viewValue: 'Jio Fi'},
     {value: 'Jio Book', viewValue: 'Jio Book'},
     {value: 'Jio Bharat', viewValue: 'Jio Bharat'},

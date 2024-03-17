@@ -17,6 +17,11 @@ export interface leads{
   // id?:string
 }
 
+interface Product {
+  value: string;
+  viewValue: string;
+}
+
 @Component({
   selector: 'app-leads',
   templateUrl: './leads.component.html',
@@ -28,22 +33,38 @@ export class LeadsComponent {
 
     allLeads:leads[]=[]
     leadsData: leads[]=[];
+    selectedValue:string;
+    display:boolean=false;
+
+    products: Product[] = [
+      {value: 'Jio Saavan', viewValue: 'Jio Saavan'},
+      {value: 'JioFiber', viewValue: 'JioFiber'},
+      {value: 'Air Fiber', viewValue: 'Air Fiber'},
+      {value: 'Jio Sim', viewValue: 'Jio Phone'},
+      {value: 'Jio Fi', viewValue: 'Jio Fi'},
+      {value: 'Jio Book', viewValue: 'Jio Book'},
+      {value: 'Jio Bharat', viewValue: 'Jio Bharat'},
+    ];
+
+    onSelectChange(): void {
+      console.log(this.selectedValue); // Output the selected value
+    }
 
   showLeads(){
+    this.display=true;
     console.log("here")
     this.leadData.getUsers().pipe(map((res) => {
       const leads = [];
       for (const key in res) {   //by doing this our properties are getting stored into the array
         leads.push(...res[key]) //spreading the properties in key to an individual rpoperty for leads array
       }
-      // console.log(leads);
-      return leads;
+      return leads.filter(i=>i.product==this.selectedValue);
+      
     }))
       .subscribe((res) => {
         this.allLeads = res;
-        console.log(this.allLeads);
         this.leadsData=this.allLeads;
+        return this.leadsData
       });
-    
   }
 }
