@@ -2,17 +2,17 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 export interface leads{
-  fname:string,
-  lname: string,
-  mobileNo: number,
+  fName:string,
+  lName: string,
+  mobile: number,
   address: string, 
   pinCode: number,
   state: string, 
   city:string, 
   product:string, 
-  preferredDate:Date, 
-  timeSlot:TimeRanges,
-  id?:string
+  date:Date, 
+  time:TimeRanges,
+  // id?:string
 }
 
 @Injectable({
@@ -26,7 +26,7 @@ export class LeadServiceService {
   }
 
   postUsers(data:leads){
-    console.log(data)
+    // console.log(data)
     return this.http.post('http://localhost:3050',data);
   }
 }

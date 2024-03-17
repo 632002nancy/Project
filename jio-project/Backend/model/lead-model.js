@@ -1,14 +1,14 @@
 const mongoose=require("mongoose");
 const jioLead=mongoose.Schema({
-    firstName:{
+    fName:{
         type:String,
         require:true,
     },
-    lastName:{
+    lName:{
         type:String,
         require:true,
     },
-    mobileNo:{
+    mobile:{
         type:Number,
         require:true,
     },
@@ -32,11 +32,11 @@ const jioLead=mongoose.Schema({
         type:String,
         require:true,
     },
-    preferredDate:{
+    date:{
         type:Date,
         require:true,
     },
-    timeSlot:{
+    time:{
         type:String,
         require:true,
     }

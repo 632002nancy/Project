@@ -3,22 +3,23 @@ const customer = require("../model/lead-model");
 //---------------------------performing create option and checking if the data already present or not
 const addDetails = async (req, res, next) => {
     console.log(req);
-    const { fisrtName, lastNumber, mobileNo, address, pinCode, state, city, product, preferredDate, timeSlot} = req.body;  
+    const { fName, lName, mobile, address, pinCode, state, city, product, date, time} = req.body;  
     let data;
         data = new customer({
-            fisrtName,
-            lastNumber,
-            mobileNo,
+            fName,
+            lName,
+            mobile,
             address,
             pinCode,
             state,
             city,
             product,
-            preferredDate,
-            timeSlot,
+            date,
+            time,
         });
-        data = await data.save();   
-   return res.status(200).json({ data });
+        data = await data.save();  
+        console.log(data); 
+        return res.status(200).json({ data });
 }
 
 // reading the data from the database 
