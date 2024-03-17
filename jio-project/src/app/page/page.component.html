@@ -73,6 +73,7 @@
         </div>
 
         <Button type="submit" [disabled]="!leadForm.valid">Submit</Button>
+        <div *ngIf="saved">Your Data has been saved...</div>
     </form>
 </div>
 <div class="leadButton">

@@ -22,6 +22,8 @@ export class PageComponent {
 
   @ViewChild('leadForm') form: NgForm;
 
+  saved:boolean=false;
+
   products: Product[] = [
     {value: 'Jio Saavan', viewValue: 'Jio Saavan'},
     {value: 'JioFiber', viewValue: 'JioFiber'},
@@ -35,6 +37,7 @@ export class PageComponent {
 
   postData(data: {fName:string,lName: string,mobile: number,address: string, pinCode: number,state: string, city:string, product:string, date:Date,time:TimeRanges}): void
   {
+    this.saved=true;
     console.log("form");
     console.log(this.form);
     console.log("post")
@@ -42,6 +45,7 @@ export class PageComponent {
       console.log(result);
     });
     this.form.resetForm();
+    
   }
 
   pinFetch(value:number){

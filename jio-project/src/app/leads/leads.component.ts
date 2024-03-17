@@ -46,11 +46,11 @@ export class LeadsComponent {
       {value: 'Jio Bharat', viewValue: 'Jio Bharat'},
     ];
 
-    onSelectChange(): void {
-      console.log(this.selectedValue); // Output the selected value
-    }
+    // onSelectChange(): void {
+    //   console.log(this.selectedValue); // Output the selected value
+    // }
 
-  showLeads(){
+    onSelectChange(): void {
     this.display=true;
     console.log("here")
     this.leadData.getUsers().pipe(map((res) => {
