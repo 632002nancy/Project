@@ -68,10 +68,12 @@ export class PageComponent {
 
   pinFetch(pin:any){
     let pincode = pin.toString();
-    if(pincode.length==0){
+    if(pincode.length!=6){
       console.log("Empty")
       this.stateDis=true;
       this.cityDis=true;
+      this.selectedState='';
+      this.selectedCity='';
     }
     console.log(pincode.length);
     if (pincode.length == 6) {
@@ -106,9 +108,17 @@ export class PageComponent {
       this.selectedState=state;
       this.selectedCity=city;
     } catch (error) {
-      console.error('Error fetching city:', error);
+      console.error('Error fetching city:', error.error.msg);
+      console.error('Error fetching city:', error.error.status);
       // Handle error appropriately
+      if(error.error.status==false){
+      this.selectedState="Not Found";
+      this.selectedCity="Not Found";
+      this.cityDis=true;
+      this.stateDis=true;
+      }
     }
+    
   }
   
    displayResult(city:any, state:any) {

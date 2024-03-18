@@ -57,7 +57,7 @@ const givecity = async (req, res) => {
     } else {
       return res
         .status(404)
-        .json({ error: "City/State not found for the provided pin code" });
+        .json({ msg: "City/State not found for the provided pin code",status:false });
     }
   } catch (error) {
     console.error("Error fetching City/State:", error);
