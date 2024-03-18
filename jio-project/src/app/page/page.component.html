@@ -26,7 +26,8 @@
         </div>
 
         <label>Pin Code</label>
-        <input type="number" id="pincode" placeholder="Pin" onKeyPress="if(this.value.length==6) return false;" ngModel name="pinCode" required #pinCode="ngModel" (change)="pinFetch(pinCode.value)">
+        <input type="number" id="pincode" placeholder="Pin" ngModel name="pinCode" 
+        required #pinCode="ngModel" (change)="pinFetch(pinCode.value)">
         <div>
             <small *ngIf="pinCode.touched && pinCode.invalid">Pin Code is a required field</small>
         </div>
@@ -34,19 +35,13 @@
         <div id="result"></div>
 
         <label>State</label>
-        <input type="text" name="state" ngModel required #st="ngModel">
-        <!-- <select ngModel name="state">
-            <option value="Select">Select State</option>
-        </select> -->
+        <input type="text" name="state" ngModel required #st="ngModel" [(ngModel)]="selectedState" [disabled]="stateDis">
         <div>
             <small *ngIf="st.touched && st.invalid">State is a required field</small>
         </div>
         
         <label>City</label>
-        <input type="text" name="city" ngModel required #ci="ngModel">
-        <!-- <select ngModel name="city">
-            <option value="Select">Select City</option>
-        </select> -->
+        <input type="text" name="city" ngModel required #ci="ngModel" [(ngModel)]="selectedCity" [disabled]="cityDis">
         <div>
             <small *ngIf="ci.touched && ci.invalid">City is a required field</small>
         </div>
@@ -73,7 +68,6 @@
         </div>
 
         <Button type="submit" [disabled]="!leadForm.valid">Submit</Button>
-        <div *ngIf="saved">Your Data has been saved...</div>
     </form>
 </div>
 <div class="leadButton">

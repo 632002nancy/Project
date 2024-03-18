@@ -24,9 +24,11 @@ export class LeadServiceService {
   getUsers(){
     return this.http.get('http://localhost:3050');
   }
+  getCity(pincode:any){
+    return this.http.get(`http://localhost:3050/getcity/${pincode}`);
+  }
 
   postUsers(data:leads){
-    // console.log(data)
     return this.http.post('http://localhost:3050',data);
   }
 }
