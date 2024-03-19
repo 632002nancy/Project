@@ -29,7 +29,7 @@ const addDetails = async (req, res, next) => {
     time,
   });
   data = await data.save();
-  console.log(data);
+//   console.log(data);
   return res.status(200).json({ data });
 };
 
@@ -43,14 +43,14 @@ const showDetails = async (req, res, next) => {
 //getting city state from pincode
 const givecity = async (req, res) => {
   const pincode = req.params.id;
-  console.log(pincode);
+//   console.log(pincode);
 
   try {
     const response = await axios.get(
       `http://www.postalpincode.in/api/pincode/${pincode}`
     );
     const postOffice = response.data.PostOffice;
-    console.log(postOffice);
+    // console.log(postOffice);
     if (postOffice && postOffice.length > 0 && postOffice[0].Name) {
       const city = postOffice[0].District;
       const State = postOffice[0].State;
