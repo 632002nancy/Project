@@ -39,6 +39,8 @@ const showDetails = async (req, res, next) => {
   data = await customer.find();
   res.status(200).json({ data });
 };
+
+//getting city state from pincode
 const givecity = async (req, res) => {
   const pincode = req.params.id;
   console.log(pincode);

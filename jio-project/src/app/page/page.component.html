@@ -26,7 +26,7 @@
         </div>
 
         <label>Pin Code</label>
-        <input type="number" id="pincode" placeholder="Pin" ngModel name="pinCode" 
+        <input type="number" onKeyPress="if(this.value.length==6) return false;" id="pincode" placeholder="Pin" ngModel name="pinCode" 
         required #pinCode="ngModel" (input)="pinFetch(pinCode.value)">
         <div>
             <small *ngIf="pinCode.touched && pinCode.invalid">Pin Code is a required field</small>
